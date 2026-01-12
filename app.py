@@ -5,7 +5,7 @@ import numpy as np
 st.set_page_config(page_title="Medical Insurance Predictor")
 
 st.title("Medical Insurance Cost Predictor")
-st.write("App is running successfully ✅")
+
 
 # Load model
 model = pickle.load(open("linear_regression_model.pkl", "rb"))
@@ -32,3 +32,4 @@ if st.button("Predict"):
     data = np.array([[age, gender, bmi, children, smoker, region]])
     prediction = model.predict(data)
     st.success(f"Estimated Insurance Cost: ₹ {prediction[0]:,.2f}")
+
