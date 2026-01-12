@@ -18,7 +18,7 @@ smoker = st.selectbox("Smoker", ["yes", "no"])
 region = st.selectbox("Region", ["southwest", "southeast", "northwest", "northeast"])
 
 gender = 1 if gender == "male" else 0
-smoker = 1 if smoker == "yes" else 0
+smoker = 0 if smoker == "yes" else 1
 
 region_map = {
     "southwest": 0,
@@ -32,4 +32,5 @@ if st.button("Predict"):
     data = np.array([[age, gender, bmi, children, smoker, region]])
     prediction = model.predict(data)
     st.success(f"Estimated Insurance Cost: ₹ {prediction[0]:,.2f}")
+
 
